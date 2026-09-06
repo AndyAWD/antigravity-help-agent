@@ -6,6 +6,32 @@ Comprehensive knowledge base and help plugin for the entire Google Antigravity e
 
 ---
 
+## Installation & Management
+
+### Install Plugin
+
+#### Method A: Remote Installation via GitHub (Recommended)
+```bash
+agy plugin install https://github.com/AndyAWD/antigravity-help-agent
+```
+
+#### Method B: Local Installation
+```bash
+# From within the project directory:
+agy plugin install .
+
+# Or by absolute path:
+agy plugin install /path/to/agy_help
+```
+
+### List Installed Plugins & Agents
+```bash
+agy plugin list
+agy agents
+```
+
+---
+
 ## Supported Products & Ecosystem Scope
 
 This plugin provides authoritative guidance across the entire Google Antigravity product suite:
@@ -40,38 +66,6 @@ This plugin consists of two primary components:
 2. **Skill**: [`skills/agy_help/SKILL.md`](skills/agy_help/SKILL.md)
    - Activated via `/agy_help` slash command in any conversation session.
    - Provides step-by-step guidance aligned with the four-tier verification protocol.
-
----
-
-## Installation & Management
-
-### Validate Plugin
-Run validation from the project root directory:
-```bash
-agy plugin validate .
-```
-
-### Install Plugin
-
-#### Method A: Remote Installation via GitHub (Recommended)
-```bash
-agy plugin install https://github.com/AndyAWD/antigravity-help-agent
-```
-
-#### Method B: Local Installation
-```bash
-# From within the project directory:
-agy plugin install .
-
-# Or by absolute path:
-agy plugin install /path/to/agy_help
-```
-
-### List Installed Plugins & Agents
-```bash
-agy plugin list
-agy agents
-```
 
 ---
 

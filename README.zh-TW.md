@@ -6,6 +6,32 @@ Google Antigravity 全生態系與客製化體系知識庫說明外掛程式（P
 
 ---
 
+## 安裝與管理
+
+### 安裝外掛程式
+
+#### 方式 A：透過 GitHub 遠端安裝（推薦）
+```bash
+agy plugin install https://github.com/andyawd/antigravity-help-agent
+```
+
+#### 方式 B：從本機開發路徑安裝
+```bash
+# 在專案目錄下執行：
+agy plugin install .
+
+# 或指定絕對路徑：
+agy plugin install /Users/andyawd/Project/agy_help
+```
+
+### 檢視已安裝清單
+```bash
+agy plugin list
+agy agents
+```
+
+---
+
 ## 支援產品與生態系範圍
 
 本外掛程式涵蓋 Google Antigravity 全產品線：
@@ -40,38 +66,6 @@ Google Antigravity 全生態系與客製化體系知識庫說明外掛程式（P
 2. **技能（Skill）**：[`skills/agy_help/SKILL.md`](skills/agy_help/SKILL.md)
    - 可在任何交談工作階段中以 `/agy_help` 斜線指令直接觸發。
    - 提供同步對齊代理之全生態系四層查核指引流程。
-
----
-
-## 安裝與管理
-
-### 驗證外掛程式
-在專案根目錄下執行：
-```bash
-agy plugin validate .
-```
-
-### 安裝外掛程式
-
-#### 方式 A：透過 GitHub 遠端安裝（推薦）
-```bash
-agy plugin install https://github.com/andyawd/antigravity-help-agent
-```
-
-#### 方式 B：從本機開發路徑安裝
-```bash
-# 在專案目錄下執行：
-agy plugin install .
-
-# 或指定絕對路徑：
-agy plugin install /Users/andyawd/Project/agy_help
-```
-
-### 檢視已安裝清單
-```bash
-agy plugin list
-agy agents
-```
 
 ---
 
