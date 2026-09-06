@@ -50,8 +50,18 @@ agy plugin validate .
 ```
 
 ### 安裝外掛程式
-將外掛程式安裝至全域環境（`~/.gemini/config/plugins/`）：
+
+#### 方式 A：透過 GitHub 遠端安裝（推薦）
 ```bash
+agy plugin install https://github.com/andyawd/antigravity-help-agent
+```
+
+#### 方式 B：從本機開發路徑安裝
+```bash
+# 在專案目錄下執行：
+agy plugin install .
+
+# 或指定絕對路徑：
 agy plugin install /Users/andyawd/Project/agy_help
 ```
 
