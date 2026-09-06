@@ -65,20 +65,81 @@ agy agents
 
 ## 使用方式
 
-### 方式 1：以代理模式啟動
-在終端機中指定使用 `agy_help` 代理：
-```bash
-agy --agent agy_help
+安裝或配置 `agy_help` 外掛程式後，在 Antigravity 命令列介面（`agy`）中有以下幾種實作與啟動方法：
+
+### 1. 使用斜線指令呼叫與切換代理（`/agents`）
+
+在已開啟的 `agy` 互動式交談會話中，輸入 `/agents` 斜線指令即可查看並切換至 `agy_help` 專屬代理：
+
+1. 執行 `> /agents` 會看到可用代理清單：
+   ```text
+   ────────────────────────────────────────────────
+   > /agents
+   ────────────────────────────────────────────────
+   Create New Agents
+     Workspace: 專案路徑
+     Global: 全域路徑
+
+   Available Agents
+   > ● default    Default agent
+       agy_help   Google Antigravity 全生態系說明助手
+   ```
+
+2. 移動方向鍵選取並切換至 `agy_help`，終端機將提示已就緒：
+   ```text
+   > /agents
+     ⎿  Prepared selection: agy_help (will fork the current conversation on exit).
+   ────────────────────────────────────────────────
+   > 
+   ────────────────────────────────────────────────
+   ```
+   切換後，當前的對話工作階段將由 `agy_help` 代理主導，回答所有 Antigravity 生態系產品與客製化體系的疑難雜症。
+
+---
+
+### 2. 使用技能斜線指令即時詢問（`/agy_help`）
+
+若不希望切換當前對話的主代理（保持在 `default` 或專案代理），可隨時在交談框中直接輸入 `/agy_help` 技能斜線指令進行單次或特定提問：
+
+```text
+────────────────────────────────────────────────
+> /agy_help 如何在 Antigravity 2.0 桌面版設定專案層級的沙盒（Sandbox）權限？
+────────────────────────────────────────────────
 ```
 
-### 方式 2：在對話中呼叫技能
-在現有交談工作階段中輸入斜線指令，詢問任何生態系產品：
+常用查詢範例：
 ```text
-/agy_help 如何在 Antigravity 2.0 桌面版設定專案層級的沙盒（Sandbox）權限？
 /agy_help 如何使用 Antigravity Python SDK 串流代理（Agent）的思維鏈（Thought）？
 /agy_help Antigravity IDE 的 Tab 自動補全（Autocomplete）如何運作？
 /agy_help 如何設定自訂的生命週期掛鉤（Lifecycle Hook）？
+/agy_help agy CLI 的 --effort 旗標定義與可選值為何？
 ```
+
+---
+
+### 3. 在終端機啟動時直接指定代理（`agy --agent`）
+
+在系統終端機中，直接以 `agy_help` 代理啟動全新工作階段：
+
+```bash
+# 啟動互動式對話會話
+agy --agent agy_help
+
+# 或以非互動模式單次提問
+agy --agent agy_help -p "請說明 Antigravity IDE 與一般 VS Code 擴充套件的本質差異"
+```
+
+---
+
+### 4. 使用自然語言背景派工（Subagent 模式）
+
+若您在日常開發會話（例如編寫專案程式碼）中需要臨時查詢 Antigravity 知識，但又不想讓查詢過程污染主要交談上下文（避免語境視窗 / Context Window 爆滿），可以直接用自然語言命令主代理將任務委派給 `agy_help` 子代理：
+
+```text
+請在背景派工給 agy_help 子代理去查閱 Antigravity IDE 的程式碼透鏡（Code Lenses）設定方式，並把總結帶回主對話。
+```
+
+主代理將會透過背景子代理獨立完成多層查核，並將精確無幻覺的答案帶回目前工作階段。
 
 ---
 
@@ -87,11 +148,12 @@ agy --agent agy_help
 ```text
 agy_help/
 ├── plugin.json               # 外掛程式資訊清單（Manifest）
+├── LICENSE                   # MIT 開源授權條款
 ├── README.md                 # 專案說明文件
 ├── agents/
 │   └── agy_help/
-│       └── agent.md          # 代理定義檔（含 YAML Frontmatter 與 System Prompt）
+│       └── agent.md          # 代理定義檔（含 YAML Frontmatter、四層查核防幻覺與命令安全白名單）
 └── skills/
     └── agy_help/
-        └── SKILL.md          # 技能指示檔（含 YAML Frontmatter 與 Workflow）
+        └── SKILL.md          # 技能指示檔（含 YAML Frontmatter 與作業指引）
 ```
