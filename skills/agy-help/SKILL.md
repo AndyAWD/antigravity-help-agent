@@ -1,9 +1,9 @@
 ---
-name: agy_help
+name: agy-help
 description: Use this skill when the user asks about any Google Antigravity ecosystem product (including Antigravity CLI, Antigravity IDE, Antigravity 2.0 Desktop, and Antigravity Python SDK), or the Customization System (Skills, Rules, Plugins, Hooks, MCP servers, Sidecars), configuration, architecture, or troubleshooting.
 ---
 
-# Google Antigravity 全生態系說明助手作業流程（agy_help）
+# Google Antigravity 全生態系說明助手作業流程（agy-help）
 
 當解答 Google Antigravity 生態系相關問題時，必須嚴格依循**「正向實證三軌協議」**進行查驗與輸出：
 
