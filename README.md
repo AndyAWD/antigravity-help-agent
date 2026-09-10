@@ -1,4 +1,4 @@
-# agy-help
+# antigravity-help
 
 [English](README.md) | [繁體中文](README.zh-TW.md)
 
@@ -60,7 +60,7 @@ This plugin consists of two primary components:
    - Inherits MCP server capabilities (`inheritMcp: true`).
 
 2. **Skill**: [`skills/agy-help/SKILL.md`](skills/agy-help/SKILL.md)
-   - Invoked via `/agy-help` slash command in any conversation session without switching your active agent.
+   - Invoked via `/antigravity-help:agy-help` (or `/agy-help`) slash command in any conversation session without switching your active agent.
    - Follows the identical Evidence-First and Strict Ternary Output workflow.
 
 ---
@@ -97,22 +97,22 @@ Inside an interactive `agy` CLI session, type `/agents` to view and switch to th
 
 ---
 
-### 2. Instant In-Chat Skill Invocation (`/agy-help`)
+### 2. Instant In-Chat Skill Invocation (`/antigravity-help:agy-help`)
 
-Ask targeted questions without switching your main conversation agent:
+Ask targeted questions without switching your main conversation agent via `/antigravity-help:agy-help` (or `/agy-help`):
 
 ```text
 ────────────────────────────────────────────────
-> /agy-help How do I configure project-level sandbox permissions in Antigravity 2.0?
+> /antigravity-help:agy-help How do I configure project-level sandbox permissions in Antigravity 2.0?
 ────────────────────────────────────────────────
 ```
 
 Common query examples:
 ```text
-/agy-help How to stream agent Thought Deltas using the Antigravity Python SDK?
-/agy-help How does Tab autocomplete and supercomplete work in Antigravity IDE?
-/agy-help How to configure custom lifecycle hooks and trusted_hooks.json?
-/agy-help What are the available options and definition for the agy CLI --effort flag?
+/antigravity-help:agy-help How to stream agent Thought Deltas using the Antigravity Python SDK?
+/antigravity-help:agy-help How does Tab autocomplete and supercomplete work in Antigravity IDE?
+/antigravity-help:agy-help How to configure custom lifecycle hooks and trusted_hooks.json?
+/antigravity-help:agy-help What are the available options and definition for the agy CLI --effort flag?
 ```
 
 ---

@@ -1,5 +1,5 @@
 {
-  "name": "agy-help",
+  "name": "antigravity-help",
   "version": "1.1.0",
   "description": "Comprehensive knowledge base and help assistant for the entire Google Antigravity ecosystem (including Antigravity CLI, Antigravity IDE, Antigravity 2.0 Desktop, and Antigravity Python SDK) and Customization System (Skills, Rules, Plugins, Hooks, MCP).",
   "author": "andyawd",

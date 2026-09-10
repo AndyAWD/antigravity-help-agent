@@ -1,4 +1,4 @@
-# agy-help
+# antigravity-help
 
 [English](README.md) | [繁體中文](README.zh-TW.md)
 
@@ -60,7 +60,7 @@ agy agents
    - 繼承模型上下文通訊協定能力（`inheritMcp: true`）。
 
 2. **技能（Skill）**：[`skills/agy-help/SKILL.md`](skills/agy-help/SKILL.md)
-   - 可在任何交談工作階段中以 `/agy-help` 斜線指令直接觸發，無需切換目前主代理。
+   - 可在任何交談工作階段中以 `/antigravity-help:agy-help`（或簡稱 `/agy-help`）斜線指令直接觸發，無需切換目前主代理。
    - 提供同步對齊代理之證據先行與三態閉環查驗工作流程。
 
 ---
@@ -97,22 +97,22 @@ agy agents
 
 ---
 
-### 2. 使用技能斜線指令即時詢問（`/agy-help`）
+### 2. 使用技能斜線指令即時詢問（`/antigravity-help:agy-help`）
 
-若不希望切換當前對話的主代理（保持在 `default` 或專案代理），可隨時在交談框中直接輸入 `/agy-help` 技能斜線指令進行單次或特定提問：
+若不希望切換當前對話的主代理（保持在 `default` 或專案代理），可隨時在交談框中直接輸入 `/antigravity-help:agy-help`（或 `/agy-help`）技能斜線指令進行單次或特定提問：
 
 ```text
 ────────────────────────────────────────────────
-> /agy-help 如何在 Antigravity 2.0 桌面版設定專案層級的沙盒（Sandbox）權限？
+> /antigravity-help:agy-help 如何在 Antigravity 2.0 桌面版設定專案層級的沙盒（Sandbox）權限？
 ────────────────────────────────────────────────
 ```
 
 常用查詢範例：
 ```text
-/agy-help 如何使用 Antigravity Python SDK 串流代理（Agent）的思維鏈增量（Thought Delta）？
-/agy-help Antigravity IDE 的 Tab 自動補全與超級補全（Autocomplete & Supercomplete）如何運作？
-/agy-help 如何設定自訂的生命週期掛鉤（Lifecycle Hook）與 trusted_hooks.json？
-/agy-help agy CLI 的 --effort 旗標定義與可選值為何？
+/antigravity-help:agy-help 如何使用 Antigravity Python SDK 串流代理（Agent）的思維鏈增量（Thought Delta）？
+/antigravity-help:agy-help Antigravity IDE 的 Tab 自動補全與超級補全（Autocomplete & Supercomplete）如何運作？
+/antigravity-help:agy-help 如何設定自訂的生命週期掛鉤（Lifecycle Hook）與 trusted_hooks.json？
+/antigravity-help:agy-help agy CLI 的 --effort 旗標定義與可選值為何？
 ```
 
 ---
