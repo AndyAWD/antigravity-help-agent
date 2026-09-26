@@ -1,212 +1,127 @@
 # antigravity-help
 
-[English](README.md) | [繁體中文](README.zh-TW.md)
+English | [繁體中文](README.zh-TW.md)
 
-Comprehensive knowledge base and help assistant plugin for the entire Google Antigravity ecosystem and Customization System, providing a dedicated Agent and Skill. Built with the **Positive Affirmative Protocol (Evidence-First & Strict Ternary Output)**, it delivers zero-hallucination technical specifications, architecture guides, and diagnostic support across Antigravity CLI (`agy`), Antigravity IDE, Antigravity 2.0 Desktop Application, Antigravity Python SDK (`google-antigravity`), and customizations (Skills, Rules, Plugins, Hooks, MCP, and Sidecars).
+An official knowledge base and help assistant plugin designed for the entire Google Antigravity (AGY) ecosystem and Customization System, offering a dedicated Agent and Skill.
 
----
+Comprehensive support across the three core platforms of Google Antigravity: Antigravity Command-Line Interface (CLI) (`agy`), Antigravity Integrated Development Environment (IDE), and Antigravity 2.0 Desktop Application.
 
-## Installation & Management
+It covers Antigravity CLI, Antigravity IDE, Antigravity 2.0 Desktop, Python SDK (`google-antigravity`), and the Customization System (Skills, Rules, Plugins, Hooks, Model Context Protocol (MCP), Sidecars), built with the **Positive Affirmative Protocol (Evidence-First & Strict Ternary Output)** to eliminate hallucinations and deliver authoritative technical guidance.
 
-### Install Plugin
+## Installation
 
-#### Method A: Remote Installation via GitHub (Recommended)
-```bash
-agy plugin install https://github.com/andyawd/antigravity-help-agent
-```
-
-#### Method B: Local Installation
-```bash
-# From within the project directory:
-agy plugin install .
-
-# Or by specifying the path:
-agy plugin install /path/to/antigravity-help-agent
-```
-
-### List Installed Plugins & Agents
-```bash
-agy plugin list
-agy agents
-```
-
----
-
-## Supported Ecosystem Scope
-
-Authoritative coverage across the entire Google Antigravity product suite:
-
-1. **Antigravity CLI (`agy`)**: Interactive terminal interface, CLI flags, slash commands, configuration schemas (`settings.json`), and agent lifecycle.
-2. **Antigravity IDE**: Standalone AI-first development environment built on VS Code, Tab autocomplete & supercomplete, inline commands, sidebar chat panel, inline code lenses, and automated diagnostic fixing.
-3. **Antigravity 2.0 Desktop Application**: Parallel desktop app, Chat Canvas, scheduled background tasks, HTML Auxiliary Pane (Subagents, Background Tasks, Artifacts, Files Changed, Terminals), and global/project-level permission management.
-4. **Antigravity Python SDK (`google-antigravity`)**: Programmatic agent leasing, orchestration APIs, asynchronous streaming responses, Thought Delta interception, custom tools, and capability configurations (`CapabilitiesConfig`).
-5. **Customization System**:
-   - **Skills**: Procedural workflows (`SKILL.md`), reference documentation, and execution scripts.
-   - **Rules**: Global and project-specific instructions (`GEMINI.md`, `AGENTS.md`, `.agents/rules/`).
-   - **Plugins**: Packaging and distribution for agents, skills, hooks, and MCP servers.
-   - **Hooks**: Lifecycle event automation scripts and trust manifests (`hooks.json`, `trusted_hooks.json`).
-   - **Model Context Protocol (MCP)**: External tools and context server integrations (`mcp_config.json`).
-   - **Sidecars**: Auxiliary containers and background support services.
-
----
-
-## Component Architecture
-
-This plugin consists of two primary components:
-
-1. **Agent**: [`agents/agy-help/agent.md`](agents/agy-help/agent.md)
-   - Operates as both an interactive main agent and a background subagent.
-   - Implements the Positive Affirmative Protocol, Premise Verification Protocol, and read-only diagnostic command guardrails.
-   - Inherits MCP server capabilities (`inheritMcp: true`).
-
-2. **Skill**: [`skills/agy-help/SKILL.md`](skills/agy-help/SKILL.md)
-   - Invoked via `/antigravity-help:agy-help` (or `/agy-help`) slash command in any conversation session without switching your active agent.
-   - Follows the identical Evidence-First and Strict Ternary Output workflow.
-
----
-
-## Usage Modes
-
-### 1. Switch Agent via Slash Command (`/agents`)
-
-Inside an interactive `agy` CLI session, type `/agents` to view and switch to the `agy-help` agent:
-
-1. Execute `> /agents` to list available agents:
-   ```text
-   ────────────────────────────────────────────────
-   > /agents
-   ────────────────────────────────────────────────
-   Create New Agents
-     Workspace: <workspace-path>
-     Global: <global-path>
-
-   Available Agents
-   > ● default    Default agent
-       agy-help   Google Antigravity Ecosystem Help Assistant
-   ```
-
-2. Select and switch to `agy-help`. The terminal will indicate the selection:
-   ```text
-   > /agents
-     ⎿  Prepared selection: agy-help (will fork the current conversation on exit).
-   ────────────────────────────────────────────────
-   > 
-   ────────────────────────────────────────────────
-   ```
-   Once switched, `agy-help` leads the active session for deep technical auditing and specification lookup.
-
----
-
-### 2. Instant In-Chat Skill Invocation (`/antigravity-help:agy-help`)
-
-Ask targeted questions without switching your main conversation agent via `/antigravity-help:agy-help` (or `/agy-help`):
-
-```text
-────────────────────────────────────────────────
-> /antigravity-help:agy-help How do I configure project-level sandbox permissions in Antigravity 2.0?
-────────────────────────────────────────────────
-```
-
-Common query examples:
-```text
-/antigravity-help:agy-help How to stream agent Thought Deltas using the Antigravity Python SDK?
-/antigravity-help:agy-help How does Tab autocomplete and supercomplete work in Antigravity IDE?
-/antigravity-help:agy-help How to configure custom lifecycle hooks and trusted_hooks.json?
-/antigravity-help:agy-help What are the available options and definition for the agy CLI --effort flag?
-```
-
----
-
-### 3. Launch Directly from Terminal (`agy --agent`)
-
-Start a new CLI session directly with `agy-help`:
+Install the plugin globally using the Antigravity Command-Line Interface (CLI):
 
 ```bash
-# Interactive conversation session
-agy --agent agy-help
-
-# Non-interactive single-prompt execution
-agy --agent agy-help -p "Explain the core differences between Antigravity IDE and standard VS Code extensions"
+agy plugin install https://github.com/AndyAWD/antigravity-help-agent
 ```
 
----
+## Key Features
 
-### 4. Background Subagent Dispatch via Natural Language
+1. **Seamless Cross-Platform Compatibility**: Fully compatible with Antigravity CLI terminal, IDE sidebar chat, and Antigravity 2.0 Chat Canvas.
+2. **Comprehensive Ecosystem Coverage**: Complete coverage across CLI, IDE, Desktop 2.0, Python SDK, and customization systems (Skills, Rules, Plugins, Hooks, MCP, Sidecars).
+3. **Positive Affirmative Protocol**: Strictly verifies inquiries across Evidence Anchors into a Strict Ternary Output (Documented Feature, Architectural Exclusion, Unspecified Edge Case), eliminating architectural hallucinations.
+4. **Premise Verification Protocol**: Prioritizes validating speculative UI mockups against documented specs rather than generating sycophantic assumptions.
+5. **Command Execution Guardrails**: Enforces a strict read-only whitelist for system commands, preventing unintended state modifications.
+6. **Flexible Invocation Workflows**: Switch interactively as a primary agent, dispatch as a background subagent, or invoke via dedicated slash commands.
 
-Delegate reference lookup to `agy-help` as a background subagent during coding sessions to prevent context window inflation:
+## Plugin Management
 
-```text
-Please dispatch a background task to agy-help to look up how to configure Antigravity IDE code lenses, and report back with a summary.
-```
+• List installed plugins:
 
----
+  ```bash
+  agy plugin list
+  ```
 
-## Project Directory Structure
+• Enable this plugin:
+
+  ```bash
+  agy plugin enable antigravity-help
+  ```
+
+• Disable this plugin:
+
+  ```bash
+  agy plugin disable antigravity-help
+  ```
+
+• Uninstall this plugin:
+
+  ```bash
+  agy plugin uninstall antigravity-help
+  ```
+
+## Directory Structure
 
 ```text
 antigravity-help-agent/
-├── plugin.json               # Plugin manifest
-├── LICENSE                   # MIT open-source license
-├── README.md                 # Primary documentation (English)
-├── README.zh-TW.md           # Documentation (Traditional Chinese)
-├── doc/                      # Case study raw transcripts & visual evidence
-│   ├── question.md           # Original test prompt & hypothetical mockup
-│   ├── with-agy-help/        # Test artifacts with agy-help enabled (Ground truth)
-│   │   ├── transcript.txt    # Full terminal log (30.1k tokens, 1 reasoning cycle)
-│   │   ├── screenshot_01.png # Evidence retrieval & protocol execution
-│   │   └── screenshot_02.png # Architectural exclusion analysis output
-│   └── without-agy-help/     # Test artifacts with standard guide (Hallucination)
-│       ├── transcript.txt    # Full terminal log (130.8k tokens, 30+ tool calls)
-│       ├── screenshot_01.png # Initial tool inspection loop
-│       ├── screenshot_02.png # Binary disassembly attempt (objdump/nm)
-│       ├── screenshot_03.png # Task loop & process management
-│       ├── screenshot_04.png # Temporary plugin creation attempt
-│       └── screenshot_05.png # Fabricated namespace & autocomplete response
+├── plugin.json
+├── LICENSE
+├── README.md
+├── README.zh-TW.md
 ├── agents/
 │   └── agy-help/
-│       └── agent.md          # Agent definition (YAML frontmatter, protocol, guardrails)
-└── skills/
-    └── agy-help/
-        └── SKILL.md          # Skill instructions (YAML frontmatter & workflow)
+│       └── agent.md
+├── skills/
+│   └── agy-help/
+│       └── SKILL.md
+└── doc/
+    ├── question.md
+    ├── with-agy-help/
+    │   ├── transcript.txt
+    │   ├── screenshot_01.png
+    │   └── screenshot_02.png
+    └── without-agy-help/
+        ├── transcript.txt
+        ├── screenshot_01.png
+        ├── screenshot_02.png
+        ├── screenshot_03.png
+        ├── screenshot_04.png
+        └── screenshot_05.png
 ```
 
+## Commands and Skills
+
+Once installed, trigger capabilities using natural language prompts or dedicated slash commands:
+
+### 1. Help Assistant Skill (agy-help Skill)
+
+```text
+/antigravity-help:agy-help
+```
+
+- **When to Use**: When asking questions about Google Antigravity products, configuration schemas, customizations, or troubleshooting in any active conversation.
+- **How It Works**:
+  1. Inspects local structured offline reference manuals (`cli.md`, `ide.md`, `app.md`, `sdk.md`, customization docs).
+  2. Runs whitelisted read-only diagnostic commands to introspect runtime environment.
+  3. Fetches live documentation from official sources (domain restricted to `antigravity.google` and official GitHub).
+  4. Formulates conclusions strictly within the Positive Affirmative Protocol (Documented Feature, Architectural Exclusion, or Unspecified Edge Case).
+
+### 2. Dedicated Help Agent (agy-help Agent)
+
+```text
+/agents
+```
+
+- **When to Use**: When switching to a dedicated help assistant profile or dispatching subagent consultations.
+- **How It Works**:
+  1. Type `/agents` to view and select `agy-help` from the agent switcher.
+  2. Dispatches as a background subagent within complex parent agent tasks to query ecosystem rules.
+
 ---
 
-## Key Protocols & Guardrails
+## Case Study: Eliminating Architectural Hallucinations via Positive Affirmative Protocol
 
-### Positive Affirmative Protocol (Evidence-First Verification)
-`agy-help` enforces an evidence-first closed-loop audit protocol before producing any answer:
-
-1. **Mandatory Evidence Anchor**:
-   - **Official Verbatim Citation**: Primary search in local built-in manuals (`builtin/skills/antigravity_guide/references/` and `builtin/skills/agy-customizations/docs/`) or official live domains (`antigravity.google` with `domain: antigravity.google` search constraint, and `github.com/google-antigravity`). Strictly rejects unverified third-party blogs or forums.
-   - **Local Physical State Inspection**: Validates configurations (`settings.json`), registered `<skills>` structures, and physical plugin directory hierarchies using `view_file` or `list_dir`.
-
-2. **Strict Ternary Output Mapping**:
-   Every response strictly maps to one of three mutually exclusive states:
-   - **Track 1: Documented Feature (已證實支援)** — Explicitly backed by official verbatim specifications. Quotes exact syntax and standard usage.
-   - **Track 2: Architectural Exclusion (架構實質互斥)** — Disproven by underlying data structures (e.g., flat key override collision, absence of prefix namespaces). Explains exact architectural constraints.
-   - **Track 3: Unspecified Edge Case (邊界未規範)** — Unrecorded in documentation and unsupported by physical mechanisms. Emits the standard declaration: *"This scenario has no defined behavior in official specification manuals and is considered an Undefined Behavior / Unspecified Edge Case."*
-
-3. **Premise Verification Protocol**:
-   When user prompts include hypothetical mockups (e.g., ASCII UI, assumed default option lists, imagined workflows), `agy-help` never assumes their existence. It first verifies the premise against official documentation and rejects ungrounded assumptions outright.
-
-4. **Command Execution Guardrails**:
-   Restricts `run_command` strictly to read-only diagnostics (`agy --help`, `agy help <subcommand>`, `agy <subcommand> --help`, `agy --version` / `agy version`, `agy agents`, `agy plugin list`, `agy models`, `agy changelog`, `agy mcp list`, `pip show google-antigravity` / `python3 -m pip show google-antigravity`). Modifying system states is strictly prohibited.
-
----
-
-## Case Study: Eliminating Hallucinations in Architecture & UI Queries
-
-Here is a concrete test case from plugin development workflows demonstrating the exact hallucination that occurs when relying solely on unconstrained guidance, contrasted with the zero-hallucination precision of `agy-help`.
+The following real-world benchmark demonstrates how sycophantic hallucinations occur without architectural constraints, and how `agy-help` resolves them decisively through affirmative evidence anchoring.
 
 ### Test Scenario & Hypothetical UI Mockup
-> Full test prompt available in [`doc/question.md`](doc/question.md).
+> Full prompt available in [`doc/question.md`](doc/question.md).
 
-The test scenario involves having two plugins installed (`antigravity-git-flow` and `antigravity-github-flow`), both providing a skill named `commit`.
+Scenario: Two plugins installed (`antigravity-git-flow` and `antigravity-github-flow`), each containing a skill named `commit`.
 
-**User Prompt & Terminal Mockup:**
+**User Query & Terminal Mockup:**
 ```text
-Suppose I have installed these two plugins, antigravity-git-flow and antigravity-github-flow, both containing a commit command. When I type /commit, will both /antigravity-git-flow:commit and /antigravity-github-flow:commit appear below for me to choose from?
+Suppose I have installed antigravity-git-flow and antigravity-github-flow, and both contain a commit command. When I type /commit, will the menu display both /antigravity-git-flow:commit and /antigravity-github-flow:commit for me to select?
 
       ▄▀▀▄        Antigravity CLI 1.1.27
      ▀▀▀▀▀▀       anandydy529@gmail.com (Google AI Pro)
@@ -223,34 +138,30 @@ Suppose I have installed these two plugins, antigravity-git-flow and antigravity
 
 ---
 
-### Comparison & Results
+### Execution Comparison & Benchmark
 
-| Evaluation Metric | Built-in Guide (`/antigravity-guide`) | `agy-help` Plugin |
+| Metric | Built-in Guide (`/antigravity-guide`) | `agy-help` Plugin |
 | :--- | :--- | :--- |
-| **Reasoning Efficiency** | 30+ tool calls, 130.8k tokens consumed (attempted binary reverse-engineering via `strings`/`nm`/`objdump`) | **1 reasoning cycle**, direct answer with minimal token overhead (30.1k tokens) |
-| **Premise Verification** | **Failed**: Blindly accepted hypothetical UI mockup as ground truth | **Passed**: Enforced Premise Verification Protocol; audited UI claims first |
-| **Output Integrity** | **Sycophantic Hallucination**: Fabricated non-existent "Plugin Namespacing" (`/<plugin>:<skill>`) and "Autocomplete Matching" | **Track 2 (Architectural Exclusion)**: Strictly explained flat unique-key table collision and key overwriting |
-| **System Mechanics Explained** | Incorrectly affirmed both candidates would appear in TUI | Accurately proved only one candidate will ever appear based on loading precedence |
-| **Raw Artifacts & Logs** | Full log: [`doc/without-agy-help/transcript.txt`](doc/without-agy-help/transcript.txt)<br>Visuals: [`screenshot_01.png`](doc/without-agy-help/screenshot_01.png)–[`05.png`](doc/without-agy-help/screenshot_05.png) | Full log: [`doc/with-agy-help/transcript.txt`](doc/with-agy-help/transcript.txt)<br>Visuals: [`screenshot_01.png`](doc/with-agy-help/screenshot_01.png)–[`02.png`](doc/with-agy-help/screenshot_02.png) |
+| **Reasoning Efficiency** | 30+ tool calls, 130.8k tokens, attempted binary decompilation (`strings`/`nm`/`objdump`) | **1 reasoning cycle**, zero wasted tokens (30.1k tokens) |
+| **Premise Verification** | **Failed**: Accepted hypothetical UI mockup at face value | **Passed**: Verified UI mockup against official specs |
+| **Factual Accuracy** | **Sycophantic Hallucination**: Fabricated plugin namespacing (`/<plugin>:<skill>`) and multi-select matching | **Track 2 (Architectural Exclusion)**: Confirmed flat unique-key table and key overwriting |
+| **Mechanism Explanation** | Incorrectly claimed both would appear in TUI | Correctly identified that only the highest priority skill survives in the completion menu |
+| **Transcripts & Evidence** | Log: [`doc/without-agy-help/transcript.txt`](doc/without-agy-help/transcript.txt)<br>Screenshots: [`screenshot_01.png`](doc/without-agy-help/screenshot_01.png)–[`05.png`](doc/without-agy-help/screenshot_05.png) | Log: [`doc/with-agy-help/transcript.txt`](doc/with-agy-help/transcript.txt)<br>Screenshots: [`screenshot_01.png`](doc/with-agy-help/screenshot_01.png)–[`02.png`](doc/with-agy-help/screenshot_02.png) |
 
-#### 1. Execution with Built-in `/antigravity-guide` (Hallucination Control Group)
-- **Lack of architectural boundary awareness**: The model failed to recognize that Terminal User Interface (TUI) slash commands do not support plugin names as prefix keys.
-- **Runaway inspection loops (30+ tool calls & 130.8k tokens)**: The agent entered an extended inspection loop, attempting to reverse-engineer the local `agy` binary using `strings`, `nm`, and `objdump` ([`doc/without-agy-help/transcript.txt`](doc/without-agy-help/transcript.txt)).
-- **Sycophantic hallucination fabricating mechanisms**: Returned a confident but fabricated affirmative answer: *"Yes, the display result will be exactly as shown in your mockup."* It fabricated two non-existent features:
-  - Fabricated **"Plugin Namespacing"**, claiming the slash command syntax is `/<plugin-name>:<skill-name>`.
-  - Fabricated **"Autocomplete Matching"**, claiming the TUI engine matches colons and displays both prefixed commands simultaneously.
+#### 1. Baseline Behavior without `agy-help` (Hallucination Control Group)
+- **Lack of Architectural Boundaries**: Failed to recognize that TUI slash commands do not support plugin name prefix keys.
+- **Uncontrolled Tool Exploration Loop (30+ calls, 130.8k tokens)**: The agent entered a loop attempting to decompile the binary (see [`doc/without-agy-help/transcript.txt`](doc/without-agy-help/transcript.txt)).
+- **Sycophantic Fabrication**: Gave a confident but incorrect answer (*"Yes, the result matches your mockup"*), inventing non-existent features.
 
-#### 2. Execution with `agy-help` (Positive Affirmative Protocol)
-- **Immediate precision within 1 reasoning cycle**: Without executing exploratory binary disassemblies, directly answered that only one command will be displayed ([`doc/with-agy-help/transcript.txt`](doc/with-agy-help/transcript.txt)).
-- **Strict adherence to architectural invariants**:
-  1. The CLI TUI does not support plugin-prefixed slash commands.
-  2. Skill registration operates on a flat unique-key dictionary. When duplicate names occur, key overwriting applies based on loading precedence, meaning only one entry remains and only one candidate can ever appear in the autocomplete list.
+#### 2. Enhanced Behavior with `agy-help`
+- **Instant Precision**: Answered in a single cycle without exploratory probing (see [`doc/with-agy-help/transcript.txt`](doc/with-agy-help/transcript.txt)).
+- **Architectural Invariants**:
+  1. The TUI does not support plugin-prefixed slash commands.
+  2. The skill registry operates as a flat unique-key map; duplicate skill names are overwritten based on loading precedence, meaning only one candidate ever appears in autocomplete.
 
 > [!NOTE]
-> While built-in reference documentation is comprehensive, standard models tend to hallucinate to please user assumptions when faced with plausible-looking UI mockups or unrecorded edge cases. `agy-help` establishes negative architectural constraints and strict evidence verification to eliminate this class of hallucinations entirely.
-
----
+> While reference manuals are comprehensive, standard models tend to fabricate facts to align with speculative prompts. `agy-help` prevents this through affirmative evidence anchoring.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
